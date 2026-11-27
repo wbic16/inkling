@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rse-looper"
+version = "1.0.0"
+description = "Local Recursive Self-Improvement recipe for looped Mixture-of-Experts language models (Inkblot-2-mini)."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "torch>=2.4",
+    "safetensors>=0.4",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+figures = ["matplotlib>=3.9", "numpy>=1.26"]
+
+[project.scripts]
+rse-looper = "rse_looper.pipeline:main"
+
+[tool.setuptools.packages.find]
+include = ["rse_looper*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
